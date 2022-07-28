@@ -1,0 +1,4 @@
+#!/bin/bash
+
+read files
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 &files

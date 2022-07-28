@@ -1,0 +1,36 @@
+#!/bin/bash
+
+alias c1="~/utility_functions/1"
+alias g="~/utility_functions/g"
+alias bs="~/utility_functions/betty-style.pl"
+alias bd="~/utility_functions/betty-doc.pl"
+alias a="./a.out"
+export ll5="/home/vagrant/alx-low_level_programming/0x05-pointers_arrays_strings/"
+
+export uf="/home/vagrant/utility_functions/"
+
+export ll4="/home/vagrant/alx-low_level_programming/0x04-more_functions_nested_loops/"
+
+export ll3="/home/vagrant/alx-low_level_programming/0x03-debugging/"
+
+export ll2="/home/vagrant/alx-low_level_programming/0x02-functions_nested_loops/"
+
+export ll1="/home/vagrant/alx-low_level_programming/0x01-variables_if_else_while/"
+
+export ll0="/home/vagrant/alx-low_level_programming/0x00-hello_world/"
+
+export ll6="/home/vagrant/alx-low_level_programming/0x06-pointers_arrays_strings/"
+
+export ll7="/home/vagrant/alx-low_level_programming/0x07-pointers_arrays_strings/"
+
+export ll8="/home/vagrant/alx-low_level_programming/0x08-recursion/"
+
+export ll9="/home/vagrant/alx-low_level_programming/0x09-static_libraries/"
+
+export lla="/home/vagrant/alx-low_level_programming/0x0A-argc_argv/"
+
+export llb="/home/vagrant/alx-low_level_programming/0x0B-malloc_free/"
+
+export c="/vagrant/Downloads/cp.c"
+
+alias gcce="gcc -Wall -pedantic -Werror -Wextra -std=gnu89"
