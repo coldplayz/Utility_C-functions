@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * strnum_int - converts character constants from
+ * _atoi2 - converts character constants from
  * 0 to 9 to actual integers
  * @c: a character constant of form '0' to '9'
  *
  * Return: an integer
  */
-int strnum_int(char c)
+int _atoi2(char c)
 {
 	int i;
 

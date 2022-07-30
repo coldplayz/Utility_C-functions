@@ -31,6 +31,10 @@ export lla="/home/vagrant/alx-low_level_programming/0x0A-argc_argv/"
 
 export llb="/home/vagrant/alx-low_level_programming/0x0B-malloc_free/"
 
+export llc="/home/vagrant/alx-low_level_programming/0x0C-more_malloc_free/"
+
 export c="/vagrant/Downloads/cp.c"
 
 alias gcce="gcc -Wall -pedantic -Werror -Wextra -std=gnu89"
+
+alias cutils="~/utility_functions/cutils.sh"
