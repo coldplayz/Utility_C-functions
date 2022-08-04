@@ -97,7 +97,9 @@ char *add_rev_str(char *str1, char *str2, int len1);
 int _atoi2(char c);
 char *strdup2(char *str);
 char *rev_add_rev(char *s1, char *s2, int revs1, int revs2);
-
+char **mult_rev_str(char *s1, char *s2, int s1eln, int s2len);
+char *rev_mult_rev(char *s1, char *s2);
+void puts2(char *str);
 
 
 
