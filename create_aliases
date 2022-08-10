@@ -51,3 +51,5 @@ export c="/vagrant/Downloads/cp.c"
 alias gcce="gcc -Wall -pedantic -Werror -Wextra -std=gnu89"
 
 alias cutils="~/utility_functions/cutils.sh"
+
+export pf="/home/vagrant/printf"
