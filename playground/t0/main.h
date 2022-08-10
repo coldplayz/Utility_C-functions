@@ -104,6 +104,13 @@ int num_len(int n);
 int pwr(int base, int index);
 char *c2s(char c, int i, int flag);
 void print_posint(int n);
+void print_negint(int n);
+int _printf(const char *format, ...);
+int print_any2(va_list ap, char c);
+int printbin(unsigned int n);
+int printc(char arg);
+int prints(char *s);
+int printp();
 
 
 
