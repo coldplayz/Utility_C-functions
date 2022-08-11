@@ -7,9 +7,9 @@ int main()
 {
 	int a, b;
 
-	a = _printf("%K\n");
+	a = _printf("%!\n");
 	printf(" a: %d\n", a);
-	b = printf("%K\n");
+	b = printf("%!\n");
 	printf(" b: %d\n", b);
 
 	return (0);

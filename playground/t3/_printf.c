@@ -36,7 +36,8 @@ int _printf(const char *format, ...)
 				pti = printfext2(ap, format[i]);
 				bytes_count = pti[0];
 				bytes_written += bytes_count;
-				if (bytes_count > 0 || pti[1] == 1)
+				if ((bytes_count > 0 || pti[1] == 1) &&
+						(format[i] != '!' || format[i] != 'K'))
 					ret++;
 			}
 		}

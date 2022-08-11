@@ -44,6 +44,12 @@ int printfext1(va_list ap, char c)
 		case 'i':
 			bytes_written += printid(va_arg(ap, int));
 			break;
+		default:
+			if (c == '!' || c == 'K')
+			{
+				bytes_written += write(1, "%", 1);
+				bytes_written += write(1, c2s(c, 0, 0), 1);
+			}
 	}
 	return (bytes_written);
 }
