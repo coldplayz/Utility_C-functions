@@ -53,3 +53,5 @@ alias gcce="gcc -Wall -pedantic -Werror -Wextra -std=gnu89"
 alias cutils="~/utility_functions/cutils.sh"
 
 export pf="/home/vagrant/printf"
+
+export ll12="/home/vagrant/alx-low_level_programming/0x12-singly_linked_lists"
