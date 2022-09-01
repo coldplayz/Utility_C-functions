@@ -145,32 +145,6 @@ void handle_wrerr(int nw);
 void handle_args2(int ac);
 ssize_t getline2(char **line, size_t *n, FILE *stream);
 
-/* printf */
-char *c2s(char c, int i, int flag);
-int print_posint(int n);
-int print_negint(int n);
-int _printf(const char *format, ...);
-int printbin(unsigned int n);
-int printc(char arg);
-int *prints(char *s);
-int printp(void);
-int printid(int n);
-int printcp(char c);
-int printu(unsigned int n);
-int printo(unsigned int n);
-int printx(unsigned int n);
-int printX(unsigned int n);
-int printfext1(va_list ap, char c);
-int *printfext2(va_list ap, char c);
-int *printS(char *s);
-int pah(unsigned int n);
-int *printptr(void *p);
-
-/* string operations */
-int str2posint(char *str);
-void tr2(char **str, char delim);
-
-
 /* simple shell */
 char **str_arr(char *str, const char *delim);
 char *strtok2(char *str, const char *delim);
@@ -184,7 +158,6 @@ char *getenv3(const char *name, char **envp);
 int rellocate_env(const char *name, const char *val, int edit_idx, int cflag);
 int handle_dpmall(char **buff);
 void handle_dpfree(char ***sarr);
-void handle_free(char *type, int flag, ...);
 int edit_env(char *env, const char *value, int edit_idx);
 int handle_name_val(const char *name, const char *val);
 int setenv2(const char *name, const char *value, int overwrite);
@@ -192,11 +165,7 @@ int del_env(const char *name, int edit_idx);
 int unsetenv2(const char *name);
 void abs_srch(char ***sarr, char **envp);
 int rel_srch(char *cmd);
-char **in_parser(char *line, char *envp[], char **bltin_nm, int *n);
-int launch_builtins(char **sarr, int n, int *status);
-int launch_other(char **sarr, char **envp);
-int exit2(char **sarr, int *status);
-int launcher(char **str_ar, char **envp, char *bltin_nm[], int *status);
+char **in_parser(char *line, char *envp[]);
 
 
 

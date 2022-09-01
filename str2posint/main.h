@@ -168,7 +168,6 @@ int *printptr(void *p);
 
 /* string operations */
 int str2posint(char *str);
-void tr2(char **str, char delim);
 
 
 /* simple shell */
@@ -184,7 +183,7 @@ char *getenv3(const char *name, char **envp);
 int rellocate_env(const char *name, const char *val, int edit_idx, int cflag);
 int handle_dpmall(char **buff);
 void handle_dpfree(char ***sarr);
-void handle_free(char *type, int flag, ...);
+void handle_free(char *type, ...);
 int edit_env(char *env, const char *value, int edit_idx);
 int handle_name_val(const char *name, const char *val);
 int setenv2(const char *name, const char *value, int overwrite);
@@ -192,11 +191,7 @@ int del_env(const char *name, int edit_idx);
 int unsetenv2(const char *name);
 void abs_srch(char ***sarr, char **envp);
 int rel_srch(char *cmd);
-char **in_parser(char *line, char *envp[], char **bltin_nm, int *n);
-int launch_builtins(char **sarr, int n, int *status);
-int launch_other(char **sarr, char **envp);
-int exit2(char **sarr, int *status);
-int launcher(char **str_ar, char **envp, char *bltin_nm[], int *status);
+char **in_parser(char *line, char *envp[]);
 
 
 

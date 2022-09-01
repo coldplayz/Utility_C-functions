@@ -1,0 +1,393 @@
+
+
+Thu Sep  1 08:52:20 2022
+Command line: TestDisk
+
+TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER <grenier@cgsecurity.org>
+https://www.cgsecurity.org
+OS: Linux, kernel 5.4.0-122-generic (#138-Ubuntu SMP Wed Jun 22 15:00:31 UTC 2022) x86_64
+Compiler: GCC 9.2
+ext2fs lib: 1.45.5, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.1
+User is not root!
+Hard disk list
+
+
+TestDisk exited normally.
+Using locale 'C.UTF-8'.
+
+
+Thu Sep  1 08:52:20 2022
+Command line: TestDisk /debug
+
+TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER <grenier@cgsecurity.org>
+https://www.cgsecurity.org
+OS: Linux, kernel 5.4.0-122-generic (#138-Ubuntu SMP Wed Jun 22 15:00:31 UTC 2022) x86_64
+Compiler: GCC 9.2
+ext2fs lib: 1.45.5, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.1
+Warning: can't get size for Disk /dev/mapper/control - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop1 - 0 B - 0 sectors (RO), sector size=512
+Warning: can't get size for Disk /dev/loop6 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop7 - 0 B - 0 sectors, sector size=512
+Hard disk list
+Disk /dev/sda - 42 GB / 40 GiB - CHS 5221 255 63, sector size=512 - VBOX HARDDISK, FW:1.0
+Disk /dev/sdb - 10 MB / 10 MiB - CHS 10 64 32, sector size=512 - VBOX HARDDISK, FW:1.0
+Disk /dev/loop0 - 64 MB / 61 MiB - 126896 sectors (RO), sector size=512
+Disk /dev/loop2 - 71 MB / 67 MiB - 138880 sectors (RO), sector size=512
+Disk /dev/loop3 - 49 MB / 46 MiB - 96176 sectors (RO), sector size=512
+Disk /dev/loop4 - 49 MB / 46 MiB - 96160 sectors (RO), sector size=512
+Disk /dev/loop5 - 64 MB / 61 MiB - 126888 sectors (RO), sector size=512
+
+Partition table type (auto): Intel
+Disk /dev/sda - 42 GB / 40 GiB - VBOX HARDDISK
+Partition table type: Intel
+
+Interface Advanced
+Geometry from i386 MBR: head=170 sector=35
+ 1 * Linux                    0  32 33  5221 169 35   83883999 [cloudimg-rootfs]
+     ext4 blocksize=4096 Large_file Sparse_SB Recover, 42 GB / 39 GiB
+
+
+dir_partition inode=2
+ 1 * Linux                    0  32 33  5221 169 35   83883999 [cloudimg-rootfs]
+     ext4 blocksize=4096 Large_file Sparse_SB Recover, 42 GB / 39 GiB
+Directory /
+       2 drwxr-xr-x     0      0      4096 15-Aug-2022 08:41 .
+       2 drwxr-xr-x     0      0      4096 15-Aug-2022 08:41 ..
+      11 drwx------     0      0     16384 15-Jun-2022 21:41 lost+found
+      12 lrwxrwxrwx     0      0         7 15-Jun-2022 21:38 bin
+      13 drwxr-xr-x     0      0      4096 16-Aug-2022 07:05 boot
+      26 drwxr-xr-x     0      0      4096 15-Jun-2022 21:40 dev
+      43 drwxr-xr-x     0      0      4096  1-Sep-2022 08:41 etc
+    1524 drwxr-xr-x     0      0      4096 21-Jun-2022 04:38 home
+    1525 lrwxrwxrwx     0      0         7 15-Jun-2022 21:38 lib
+    1526 lrwxrwxrwx     0      0         9 15-Jun-2022 21:38 lib32
+    1527 lrwxrwxrwx     0      0         9 15-Jun-2022 21:38 lib64
+    1528 lrwxrwxrwx     0      0        10 15-Jun-2022 21:38 libx32
+    1529 drwxr-xr-x     0      0      4096 15-Jun-2022 21:38 media
+    1530 drwxr-xr-x     0      0      4096 15-Jun-2022 21:38 mnt
+    1531 drwxr-xr-x     0      0      4096 21-Jun-2022 09:55 opt
+    1532 drwxr-xr-x     0      0      4096 15-Apr-2020 11:09 proc
+    1533 drwx------     0      0      4096 30-Jul-2022 13:24 root
+    1536 drwxr-xr-x     0      0      4096 15-Jun-2022 21:40 run
+    1540 lrwxrwxrwx     0      0         8 15-Jun-2022 21:38 sbin
+    1541 drwxr-xr-x     0      0      4096 15-Jun-2022 21:40 snap
+    1561 drwxr-xr-x     0      0      4096 15-Jun-2022 21:38 srv
+    1562 drwxr-xr-x     0      0      4096 15-Apr-2020 11:09 sys
+    1563 drwxrwxrwt     0      0      4096  1-Sep-2022 08:41 tmp
+    1564 drwxr-xr-x     0      0      4096 15-Jun-2022 21:39 usr
+   67869 drwxr-xr-x     0      0      4096 15-Jun-2022 21:40 var
+ 2560001 drwxr-xr-x     0      0      4096 21-Jun-2022 09:57 vagrant
+X   2349 -rw-r--r--     0      0        67 15-Aug-2022 08:42 .ismount-test-file
+
+dir_partition inode=1524
+ 1 * Linux                    0  32 33  5221 169 35   83883999 [cloudimg-rootfs]
+     ext4 blocksize=4096 Large_file Sparse_SB Recover, 42 GB / 39 GiB
+Directory /home
+    1524 drwxr-xr-x     0      0      4096 21-Jun-2022 04:38 .
+       2 drwxr-xr-x     0      0      4096 15-Aug-2022 08:41 ..
+   80991 drwxr-xr-x  1000   1000      4096  1-Sep-2022 08:51 vagrant
+  256001 drwxr-xr-x  1001   1001      4096 21-Jun-2022 04:39 ubuntu
+
+dir_partition inode=80991
+ 1 * Linux                    0  32 33  5221 169 35   83883999 [cloudimg-rootfs]
+     ext4 blocksize=4096 Large_file Sparse_SB Recover, 42 GB / 39 GiB
+Directory /home/vagrant
+   80991 drwxr-xr-x  1000   1000      4096  1-Sep-2022 08:51 .
+    1524 drwxr-xr-x     0      0      4096 21-Jun-2022 04:38 ..
+     147 -rw-r--r--  1000   1000       807 15-Jun-2022 21:53 .profile
+   14429 -rw-r--r--  1000   1000      3775 25-Aug-2022 07:10 .bashrc
+   71192 -rw-r--r--  1000   1000       220 15-Jun-2022 21:53 .bash_logout
+   80994 drwx------  1000   1000      4096 21-Jun-2022 09:50 .ssh
+  256045 drwx------  1000   1000      4096 21-Jun-2022 04:43 .cache
+  256056 drwxrwxr-x  1000   1000      4096 21-Jun-2022 10:06 zero_day
+    1547 -rw-------  1000   1000     42824  1-Sep-2022 08:51 .viminfo
+    5605 -rw-------  1000   1000     42839 26-Aug-2022 08:25 .bash_history
+   71183 -rw-rw-r--  1000   1000        61 21-Jun-2022 08:23 .gitconfig
+  256093 drwxrwxr-x  1000   1000      4096 23-Jun-2022 12:56 alx-system_engineering-devops
+    1662 -rwx------  1000   1000        77  1-Aug-2022 13:26 test.c
+    3283 -rw-------  1000   1000       123 21-Aug-2022 11:39 .lesshst
+  256732 drwxrwxr-x  1000   1000      4096 22-Aug-2022 12:21 alx-low_level_programming
+   12027 -rwx------  1000   1000       503  7-Jul-2022 10:03 size.c
+    3281 -rw-rw-r--  1000   1000   2489669  6-Jul-2022 08:23 headers.txt
+   14462 -rwxrwxr-x  1000   1000     16696 28-Jul-2022 09:37 a.out
+     415 -rw-rw-r--  1000   1000     30974  1-Aug-2022 13:26 z
+   14484 -rwx------  1000   1000       603 14-Aug-2022 11:45 m.c
+  773653 drwxrwxr-x  1000   1000      4096  6-Jul-2022 13:47 Betty
+   11964 -rwx------  1000   1000       113 28-Jul-2022 09:37 test2.c
+  523994 drwxrwxr-x  1000   1000      4096 31-Aug-2022 12:02 printf
+   14502 -rwxrwxr-x  1000   1000     16864 14-Aug-2022 11:45 m
+  256774 drwxrwxr-x  1000   1000      4096  6-Jul-2022 14:13 .local
+  768207 drwxrwxr-x  1000   1000      4096 31-Aug-2022 11:51 simple_shell
+  768586 drwxr-xr-x  1000   1000      4096 31-Aug-2022 17:26 .vim
+X   1547 -rw-------  1000   1000     42824  1-Sep-2022 08:51 .viminfo.tmp
+X  11977 -rw-r--r--     0      0      2194  9-Jul-2013 15:28 sort_str.o
+X   6303 -rw-r-----     0      4       621 29-Jul-2022 17:30 .sort_str.c.swp
+X  14459 -rw-r--r--     0      0         0  1-Sep-2022 08:41 4913
+  256865 drwxrwxr-x  1000   1000      4096 12-Jul-2022 23:22 holbertonschool-low_level_programming
+X  14443 -rw-r--r--     0      0         0  1-Sep-2022 08:41 .viminfo.tmp
+X  12029 -rwx------  1000   1000       575 14-Jul-2022 19:02 strcpy2.c
+X  12045 -rwx------  1000   1000       147 14-Jul-2022 18:00 int_arr_size.c
+X  12031 -rwx------  1000   1000       365 15-Jul-2022 07:28 leet_mapper.c
+X  11990 -rwxrwxr-x  1000   1000      1950 15-Jul-2022 11:41 102-print_number.c
+X  18653 -rwx------  1000   1000       842 15-Jul-2022 13:42 rot13_mapper.c
+X  18715 -rwx------  1000   1000       444 16-Jul-2022 10:59 strnumsum2int.c
+X  12032 -rw-r--r--     0      0    646548 16-Aug-2022 07:05 rev_string.c
+X  18713 -rwx------  1000   1000       493 16-Jul-2022 11:21 rev_intarray.c
+ 1280447 drwxrwxr-x  1000   1000      4096 31-Aug-2022 12:25 utility_functions
+
+dir_partition inode=768207
+ 1 * Linux                    0  32 33  5221 169 35   83883999 [cloudimg-rootfs]
+     ext4 blocksize=4096 Large_file Sparse_SB Recover, 42 GB / 39 GiB
+Directory /home/vagrant/simple_shell
+  768207 drwxrwxr-x  1000   1000      4096 31-Aug-2022 11:51 .
+   80991 drwxr-xr-x  1000   1000      4096  1-Sep-2022 08:51 ..
+  768208 drwxrwxr-x  1000   1000      4096 31-Aug-2022 07:29 .git
+  768260 -rwxrwxr-x  1000   1000        38 29-Aug-2022 12:39 .gitignore
+  768261 -rw-rw-r--  1000   1000        23 29-Aug-2022 12:39 README.md
+  768262 drwxrwxr-x  1000   1000      4096 29-Aug-2022 12:42 shell
+  768371 -rwxrwxr-x  1000   1000     22624 31-Aug-2022 07:25 a.out
+  768385 -rwxrwxr-x  1000   1000      6457 31-Aug-2022 16:55 main.h
+  768389 drwxrwxr-x  1000   1000      4096 30-Aug-2022 19:44 t3
+  768462 -rwx------  1000   1000       240 30-Aug-2022 17:47 htemplate
+  768256 drwxrwxr-x  1000   1000      4096  1-Sep-2022 07:00 t4
+  768572 -rw-rw-r--  1000   1000     46294 30-Aug-2022 17:41 libprintf.a
+  768384 drwxrwxr-x  1000   1000      4096 29-Aug-2022 18:00 t1
+  768463 -rwx------  1000   1000      1088 31-Aug-2022 07:22 abs_srch.c
+  768488 -rwx------  1000   1000      1471 31-Aug-2022 07:22 getenv3.c
+  768493 -rwx------  1000   1000       762 31-Aug-2022 07:22 handle_dpfree.c
+  768494 -rwx------  1000   1000      1461 31-Aug-2022 07:22 handle_free.c
+  768495 -rwx------  1000   1000       857 31-Aug-2022 07:22 handle_realloc.c
+  768496 -rwx------  1000   1000      1186 31-Aug-2022 07:22 handle_strlen.c
+  768497 -rwx------  1000   1000      1172 31-Aug-2022 07:22 input_parser.c
+  768498 -rwx------  1000   1000      1379 31-Aug-2022 07:22 isinPATH2.c
+X 768499 drwxrwxr-x  1000   1000      4096 31-Aug-2022 07:28 launcher.c
+  768500 -rwx------  1000   1000       652 31-Aug-2022 07:22 memncopy2.c
+  768501 -rwx------  1000   1000       929 31-Aug-2022 07:22 realloc2.c
+  768502 -rwx------  1000   1000       637 31-Aug-2022 07:22 rel_srch.c
+  768503 -rwx------  1000   1000      1207 31-Aug-2022 07:22 ssshell.c
+  768504 -rwx------  1000   1000       947 31-Aug-2022 07:22 str_arr.c
+  768505 -rwx------  1000   1000       701 31-Aug-2022 07:22 strcmp2.c
+  768506 -rwx------  1000   1000      1743 31-Aug-2022 07:22 strconcatl.c
+  768507 -rwx------  1000   1000       591 31-Aug-2022 07:22 strdup2.c
+  768508 -rwx------  1000   1000       430 31-Aug-2022 07:22 strlen2.c
+
+dir_partition inode=768256
+ 1 * Linux                    0  32 33  5221 169 35   83883999 [cloudimg-rootfs]
+     ext4 blocksize=4096 Large_file Sparse_SB Recover, 42 GB / 39 GiB
+Directory /home/vagrant/simple_shell/t4
+  768256 drwxrwxr-x  1000   1000      4096  1-Sep-2022 07:00 .
+  768207 drwxrwxr-x  1000   1000      4096 31-Aug-2022 11:51 ..
+  768547 -rwxrwxr-x  1000   1000     65592 31-Aug-2022 19:43 a.out
+  768627 -rwx------  1000   1000      1080 31-Aug-2022 19:39 abs_srch.c
+  768550 -rwx------  1000   1000      1471 31-Aug-2022 09:12 getenv3.c
+  768551 -rwx------  1000   1000       762 31-Aug-2022 09:12 handle_dpfree.c
+  768558 -rwx------  1000   1000      1602 31-Aug-2022 17:08 handle_free.c
+  768553 -rwx------  1000   1000       857 31-Aug-2022 09:12 handle_realloc.c
+  768554 -rwx------  1000   1000      1186 31-Aug-2022 09:12 handle_strlen.c
+  768644 -rwx------  1000   1000      1352 31-Aug-2022 17:27 input_parser.c
+  768556 -rwx------  1000   1000      1379 31-Aug-2022 09:12 isinPATH2.c
+  768639 -rwx------  1000   1000      1169 31-Aug-2022 17:30 launcher.c
+  768585 -rwxrwxr-x  1000   1000      6502 31-Aug-2022 17:29 main.h
+  768559 -rwx------  1000   1000       652 31-Aug-2022 09:12 memncopy2.c
+  768560 -rwx------  1000   1000       929 31-Aug-2022 09:12 realloc2.c
+  768561 -rwx------  1000   1000       637 31-Aug-2022 09:12 rel_srch.c
+  768647 -rwx------  1000   1000      1149  1-Sep-2022 07:00 ssshell.c
+  768563 -rwx------  1000   1000       947 31-Aug-2022 09:12 str_arr.c
+  768564 -rwx------  1000   1000       701 31-Aug-2022 09:12 strcmp2.c
+  768565 -rwx------  1000   1000      1743 31-Aug-2022 09:12 strconcatl.c
+  768566 -rwx------  1000   1000       591 31-Aug-2022 09:12 strdup2.c
+  768567 -rwx------  1000   1000       430 31-Aug-2022 15:11 strlen2.c
+  768568 -rw-rw-r--  1000   1000       370  1-Sep-2022 08:15 text
+  768580 -rwx------  1000   1000       297 31-Aug-2022 19:41 atoi2.c
+  768569 drwxrwxr-x  1000   1000      4096 31-Aug-2022 12:23 str2posint
+  768549 drwxrwxr-x  1000   1000      4096 31-Aug-2022 19:47 test
+  768645 -rwx------  1000   1000       400  1-Sep-2022 07:00 htemplate
+  768582 -rw-rw-r--  1000   1000     46294 31-Aug-2022 15:11 libprintf.a
+  768583 -rwxrwxr-x  1000   1000       330 31-Aug-2022 15:11 pwr.c
+  768584 -rwx------  1000   1000       802 31-Aug-2022 15:11 str2posint.c
+  768557 drwxrwxr-x  1000   1000      4096 31-Aug-2022 13:55 input_parsing
+  768626 drwxrwxr-x  1000   1000      4096 31-Aug-2022 17:26 launcher
+  768555 -rwx------  1000   1000       679 31-Aug-2022 19:42 exit.c
+  768642 -rwx------  1000   1000      1165 31-Aug-2022 15:14 launch_builtins.c
+  768641 -rwx------  1000   1000      1016 31-Aug-2022 15:11 launch_other.c
+X 768574 drwxr-xr-x     6     12      4096  1-Sep-2022 08:40 .htemplate.swp
+  768643 drwxrwxr-x  1000   1000      4096  1-Sep-2022 08:52 copy
+X 768581 drwxrwxr-x  1000   1000      4096  1-Sep-2022 08:15 htemplate~
+X 768646 drwxr-xr-x     6     12      4096  1-Sep-2022 08:41 .handle_realloc.c.swx
+
+dir_partition inode=768643
+ 1 * Linux                    0  32 33  5221 169 35   83883999 [cloudimg-rootfs]
+     ext4 blocksize=4096 Large_file Sparse_SB Recover, 42 GB / 39 GiB
+Directory /home/vagrant/simple_shell/t4/copy
+  768643 drwxrwxr-x  1000   1000      4096  1-Sep-2022 08:52 .
+  768256 drwxrwxr-x  1000   1000      4096  1-Sep-2022 07:00 ..
+  768695 -rw-rw-r--  1000   1000         0  1-Sep-2022 08:46 text
+  768696 -rw-rw-r--  1000   1000      4096  1-Sep-2022 08:57 testdisk.log
+X 768697 -rw-------  1000   1000         0  1-Sep-2022 08:51 .text.swpx
+X 768646 drwxr-xr-x     6     12      4096  1-Sep-2022 08:41 strlen2.c
+X 768649 -rw-r--r--     0      0        25  4-Jun-2020 16:10 bkup.c
+X 768653 -rw-r--r--     0      0       976  4-Jun-2020 16:10 tr2.c
+X 768654 -rw-r--r--     0      0      6101  9-Sep-2019 14:49 test.c
+  768581 drwxrwxr-x  1000   1000      4096  1-Sep-2022 08:15 t
+X 768649 -rw-r--r--     0      0        25  4-Jun-2020 16:10 strconcatl.c
+X 768650 -rw-r--r--     0      0      6391  4-Jun-2020 16:10 str_arr.c
+X 768574 drwxr-xr-x     6     12      4096  1-Sep-2022 08:40 handle_realloc.c
+X 768651 -rw-r--r--     0      0        73  4-Jun-2020 16:10 handle_strlen.c
+X 768654 -rw-r--r--     0      0      6101  9-Sep-2019 14:49 realloc2.c
+X 768656 drwxr-xr-x     0      0      4096  1-Sep-2022 08:40 memncopy2.c
+Directory /home/vagrant/simple_shell/t4
+  768256 drwxrwxr-x  1000   1000      4096  1-Sep-2022 07:00 .
+  768207 drwxrwxr-x  1000   1000      4096 31-Aug-2022 11:51 ..
+  768547 -rwxrwxr-x  1000   1000     65592 31-Aug-2022 19:43 a.out
+  768627 -rwx------  1000   1000      1080 31-Aug-2022 19:39 abs_srch.c
+  768550 -rwx------  1000   1000      1471 31-Aug-2022 09:12 getenv3.c
+  768551 -rwx------  1000   1000       762 31-Aug-2022 09:12 handle_dpfree.c
+  768558 -rwx------  1000   1000      1602 31-Aug-2022 17:08 handle_free.c
+  768553 -rwx------  1000   1000       857 31-Aug-2022 09:12 handle_realloc.c
+  768554 -rwx------  1000   1000      1186 31-Aug-2022 09:12 handle_strlen.c
+  768644 -rwx------  1000   1000      1352 31-Aug-2022 17:27 input_parser.c
+  768556 -rwx------  1000   1000      1379 31-Aug-2022 09:12 isinPATH2.c
+  768639 -rwx------  1000   1000      1169 31-Aug-2022 17:30 launcher.c
+  768585 -rwxrwxr-x  1000   1000      6502 31-Aug-2022 17:29 main.h
+  768559 -rwx------  1000   1000       652 31-Aug-2022 09:12 memncopy2.c
+  768560 -rwx------  1000   1000       929 31-Aug-2022 09:12 realloc2.c
+  768561 -rwx------  1000   1000       637 31-Aug-2022 09:12 rel_srch.c
+  768647 -rwx------  1000   1000      1149  1-Sep-2022 07:00 ssshell.c
+  768563 -rwx------  1000   1000       947 31-Aug-2022 09:12 str_arr.c
+  768564 -rwx------  1000   1000       701 31-Aug-2022 09:12 strcmp2.c
+  768565 -rwx------  1000   1000      1743 31-Aug-2022 09:12 strconcatl.c
+  768566 -rwx------  1000   1000       591 31-Aug-2022 09:12 strdup2.c
+  768567 -rwx------  1000   1000       430 31-Aug-2022 15:11 strlen2.c
+  768568 -rw-rw-r--  1000   1000       370  1-Sep-2022 08:15 text
+  768580 -rwx------  1000   1000       297 31-Aug-2022 19:41 atoi2.c
+  768569 drwxrwxr-x  1000   1000      4096 31-Aug-2022 12:23 str2posint
+  768549 drwxrwxr-x  1000   1000      4096 31-Aug-2022 19:47 test
+  768645 -rwx------  1000   1000       400  1-Sep-2022 07:00 htemplate
+  768582 -rw-rw-r--  1000   1000     46294 31-Aug-2022 15:11 libprintf.a
+  768583 -rwxrwxr-x  1000   1000       330 31-Aug-2022 15:11 pwr.c
+  768584 -rwx------  1000   1000       802 31-Aug-2022 15:11 str2posint.c
+  768557 drwxrwxr-x  1000   1000      4096 31-Aug-2022 13:55 input_parsing
+  768626 drwxrwxr-x  1000   1000      4096 31-Aug-2022 17:26 launcher
+  768555 -rwx------  1000   1000       679 31-Aug-2022 19:42 exit.c
+  768642 -rwx------  1000   1000      1165 31-Aug-2022 15:14 launch_builtins.c
+  768641 -rwx------  1000   1000      1016 31-Aug-2022 15:11 launch_other.c
+X 768574 drwxr-xr-x     6     12      4096  1-Sep-2022 08:40 .htemplate.swp
+  768643 drwxrwxr-x  1000   1000      4096  1-Sep-2022 08:52 copy
+X 768581 drwxrwxr-x  1000   1000      4096  1-Sep-2022 08:15 htemplate~
+X 768646 drwxr-xr-x     6     12      4096  1-Sep-2022 08:41 .handle_realloc.c.swx
+Directory /home/vagrant/simple_shell
+  768207 drwxrwxr-x  1000   1000      4096 31-Aug-2022 11:51 .
+   80991 drwxr-xr-x  1000   1000      4096  1-Sep-2022 08:51 ..
+  768208 drwxrwxr-x  1000   1000      4096 31-Aug-2022 07:29 .git
+  768260 -rwxrwxr-x  1000   1000        38 29-Aug-2022 12:39 .gitignore
+  768261 -rw-rw-r--  1000   1000        23 29-Aug-2022 12:39 README.md
+  768262 drwxrwxr-x  1000   1000      4096 29-Aug-2022 12:42 shell
+  768371 -rwxrwxr-x  1000   1000     22624 31-Aug-2022 07:25 a.out
+  768385 -rwxrwxr-x  1000   1000      6457 31-Aug-2022 16:55 main.h
+  768389 drwxrwxr-x  1000   1000      4096 30-Aug-2022 19:44 t3
+  768462 -rwx------  1000   1000       240 30-Aug-2022 17:47 htemplate
+  768256 drwxrwxr-x  1000   1000      4096  1-Sep-2022 07:00 t4
+  768572 -rw-rw-r--  1000   1000     46294 30-Aug-2022 17:41 libprintf.a
+  768384 drwxrwxr-x  1000   1000      4096 29-Aug-2022 18:00 t1
+  768463 -rwx------  1000   1000      1088 31-Aug-2022 07:22 abs_srch.c
+  768488 -rwx------  1000   1000      1471 31-Aug-2022 07:22 getenv3.c
+  768493 -rwx------  1000   1000       762 31-Aug-2022 07:22 handle_dpfree.c
+  768494 -rwx------  1000   1000      1461 31-Aug-2022 07:22 handle_free.c
+  768495 -rwx------  1000   1000       857 31-Aug-2022 07:22 handle_realloc.c
+  768496 -rwx------  1000   1000      1186 31-Aug-2022 07:22 handle_strlen.c
+  768497 -rwx------  1000   1000      1172 31-Aug-2022 07:22 input_parser.c
+  768498 -rwx------  1000   1000      1379 31-Aug-2022 07:22 isinPATH2.c
+X 768499 drwxrwxr-x  1000   1000      4096 31-Aug-2022 07:28 launcher.c
+  768500 -rwx------  1000   1000       652 31-Aug-2022 07:22 memncopy2.c
+  768501 -rwx------  1000   1000       929 31-Aug-2022 07:22 realloc2.c
+  768502 -rwx------  1000   1000       637 31-Aug-2022 07:22 rel_srch.c
+  768503 -rwx------  1000   1000      1207 31-Aug-2022 07:22 ssshell.c
+  768504 -rwx------  1000   1000       947 31-Aug-2022 07:22 str_arr.c
+  768505 -rwx------  1000   1000       701 31-Aug-2022 07:22 strcmp2.c
+  768506 -rwx------  1000   1000      1743 31-Aug-2022 07:22 strconcatl.c
+  768507 -rwx------  1000   1000       591 31-Aug-2022 07:22 strdup2.c
+  768508 -rwx------  1000   1000       430 31-Aug-2022 07:22 strlen2.c
+Directory /home/vagrant
+   80991 drwxr-xr-x  1000   1000      4096  1-Sep-2022 08:51 .
+    1524 drwxr-xr-x     0      0      4096 21-Jun-2022 04:38 ..
+     147 -rw-r--r--  1000   1000       807 15-Jun-2022 21:53 .profile
+   14429 -rw-r--r--  1000   1000      3775 25-Aug-2022 07:10 .bashrc
+   71192 -rw-r--r--  1000   1000       220 15-Jun-2022 21:53 .bash_logout
+   80994 drwx------  1000   1000      4096 21-Jun-2022 09:50 .ssh
+  256045 drwx------  1000   1000      4096 21-Jun-2022 04:43 .cache
+  256056 drwxrwxr-x  1000   1000      4096 21-Jun-2022 10:06 zero_day
+    1547 -rw-------  1000   1000     42824  1-Sep-2022 08:51 .viminfo
+    5605 -rw-------  1000   1000     42839 26-Aug-2022 08:25 .bash_history
+   71183 -rw-rw-r--  1000   1000        61 21-Jun-2022 08:23 .gitconfig
+  256093 drwxrwxr-x  1000   1000      4096 23-Jun-2022 12:56 alx-system_engineering-devops
+    1662 -rwx------  1000   1000        77  1-Aug-2022 13:26 test.c
+    3283 -rw-------  1000   1000       123 21-Aug-2022 11:39 .lesshst
+  256732 drwxrwxr-x  1000   1000      4096 22-Aug-2022 12:21 alx-low_level_programming
+   12027 -rwx------  1000   1000       503  7-Jul-2022 10:03 size.c
+    3281 -rw-rw-r--  1000   1000   2489669  6-Jul-2022 08:23 headers.txt
+   14462 -rwxrwxr-x  1000   1000     16696 28-Jul-2022 09:37 a.out
+     415 -rw-rw-r--  1000   1000     30974  1-Aug-2022 13:26 z
+   14484 -rwx------  1000   1000       603 14-Aug-2022 11:45 m.c
+  773653 drwxrwxr-x  1000   1000      4096  6-Jul-2022 13:47 Betty
+   11964 -rwx------  1000   1000       113 28-Jul-2022 09:37 test2.c
+  523994 drwxrwxr-x  1000   1000      4096 31-Aug-2022 12:02 printf
+   14502 -rwxrwxr-x  1000   1000     16864 14-Aug-2022 11:45 m
+  256774 drwxrwxr-x  1000   1000      4096  6-Jul-2022 14:13 .local
+  768207 drwxrwxr-x  1000   1000      4096 31-Aug-2022 11:51 simple_shell
+  768586 drwxr-xr-x  1000   1000      4096 31-Aug-2022 17:26 .vim
+X   1547 -rw-------  1000   1000     42824  1-Sep-2022 08:51 .viminfo.tmp
+X  11977 -rw-r--r--     0      0      2194  9-Jul-2013 15:28 sort_str.o
+X   6303 -rw-r-----     0      4       621 29-Jul-2022 17:30 .sort_str.c.swp
+X  14459 -rw-r--r--     0      0         0  1-Sep-2022 08:41 4913
+  256865 drwxrwxr-x  1000   1000      4096 12-Jul-2022 23:22 holbertonschool-low_level_programming
+X  14443 -rw-r--r--     0      0         0  1-Sep-2022 08:41 .viminfo.tmp
+X  12029 -rwx------  1000   1000       575 14-Jul-2022 19:02 strcpy2.c
+X  12045 -rwx------  1000   1000       147 14-Jul-2022 18:00 int_arr_size.c
+X  12031 -rwx------  1000   1000       365 15-Jul-2022 07:28 leet_mapper.c
+X  11990 -rwxrwxr-x  1000   1000      1950 15-Jul-2022 11:41 102-print_number.c
+X  18653 -rwx------  1000   1000       842 15-Jul-2022 13:42 rot13_mapper.c
+X  18715 -rwx------  1000   1000       444 16-Jul-2022 10:59 strnumsum2int.c
+X  12032 -rw-r--r--     0      0    646548 16-Aug-2022 07:05 rev_string.c
+X  18713 -rwx------  1000   1000       493 16-Jul-2022 11:21 rev_intarray.c
+ 1280447 drwxrwxr-x  1000   1000      4096 31-Aug-2022 12:25 utility_functions
+Directory /home
+    1524 drwxr-xr-x     0      0      4096 21-Jun-2022 04:38 .
+       2 drwxr-xr-x     0      0      4096 15-Aug-2022 08:41 ..
+   80991 drwxr-xr-x  1000   1000      4096  1-Sep-2022 08:51 vagrant
+  256001 drwxr-xr-x  1001   1001      4096 21-Jun-2022 04:39 ubuntu
+Directory /
+       2 drwxr-xr-x     0      0      4096 15-Aug-2022 08:41 .
+       2 drwxr-xr-x     0      0      4096 15-Aug-2022 08:41 ..
+      11 drwx------     0      0     16384 15-Jun-2022 21:41 lost+found
+      12 lrwxrwxrwx     0      0         7 15-Jun-2022 21:38 bin
+      13 drwxr-xr-x     0      0      4096 16-Aug-2022 07:05 boot
+      26 drwxr-xr-x     0      0      4096 15-Jun-2022 21:40 dev
+      43 drwxr-xr-x     0      0      4096  1-Sep-2022 08:41 etc
+    1524 drwxr-xr-x     0      0      4096 21-Jun-2022 04:38 home
+    1525 lrwxrwxrwx     0      0         7 15-Jun-2022 21:38 lib
+    1526 lrwxrwxrwx     0      0         9 15-Jun-2022 21:38 lib32
+    1527 lrwxrwxrwx     0      0         9 15-Jun-2022 21:38 lib64
+    1528 lrwxrwxrwx     0      0        10 15-Jun-2022 21:38 libx32
+    1529 drwxr-xr-x     0      0      4096 15-Jun-2022 21:38 media
+    1530 drwxr-xr-x     0      0      4096 15-Jun-2022 21:38 mnt
+    1531 drwxr-xr-x     0      0      4096 21-Jun-2022 09:55 opt
+    1532 drwxr-xr-x     0      0      4096 15-Apr-2020 11:09 proc
+    1533 drwx------     0      0      4096 30-Jul-2022 13:24 root
+    1536 drwxr-xr-x     0      0      4096 15-Jun-2022 21:40 run
+    1540 lrwxrwxrwx     0      0         8 15-Jun-2022 21:38 sbin
+    1541 drwxr-xr-x     0      0      4096 15-Jun-2022 21:40 snap
+    1561 drwxr-xr-x     0      0      4096 15-Jun-2022 21:38 srv
+    1562 drwxr-xr-x     0      0      4096 15-Apr-2020 11:09 sys
+    1563 drwxrwxrwt     0      0      4096  1-Sep-2022 08:41 tmp
+    1564 drwxr-xr-x     0      0      4096 15-Jun-2022 21:39 usr
+   67869 drwxr-xr-x     0      0      4096 15-Jun-2022 21:40 var
+ 2560001 drwxr-xr-x     0      0      4096 21-Jun-2022 09:57 vagrant
+X   2349 -rw-r--r--     0      0        67 15-Aug-2022 08:42 .ismount-test-file
+Partition table type (auto): Intel
+Disk /dev/sda - 42 GB / 40 GiB - VBOX HARDDISK
+Partition table type: Intel
+Partition table type (auto): Intel
+
+TestDisk exited normally.
