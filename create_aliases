@@ -73,3 +73,13 @@ export sshell="/home/vagrant/simple_shell"
 alias rm="rm -i"
 
 alias cpy="~/utility_functions/copy/cpy"
+
+alias rdl="~/utility_functions/readlist/rdl"
+
+alias popl="~/utility_functions/readlist/pop.sh"
+
+alias rdme="~/utility_functions/readme_filler/rdme"
+
+alias grep2="~/utility_functions/grep2/grep2"
+
+

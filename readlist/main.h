@@ -3,20 +3,8 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <signal.h>
-#include <sys/stat.h>
 
 #define BUFSIZE 512
-
-/* text output colors */
-#define BLACK "\033[0;30m"
-#define RED "\033[0;31m"
-#define GREEN "\033[0;32m"
-#define YELLOW "\033[0;33m"
-#define BLUE "\033[0;34m"
-#define PURPLE "\033[0;35m"
-#define CYAN "\033[0;36m"
-#define WHITE "\033[0;37m"
-#define RESET "\033[0m"
 
 /**
  * struct list_s - singly linked list
@@ -38,67 +26,28 @@ typedef struct list_s
  * struct shell - a data structure for variables whose values
  * need to be accessed and/or modified at different stack levels.
  * @exstat: exit status of last launched program/command.
- * @envp: address of the environment.
  * @alias: array of strings representing the alias list.
- * @newalias: command-line array of strings of potentially new aliases to set.
- * @is_aliascmd: an int storing 1 when the
- * "alias" command is given, and 0 by default.
- * @loop_cnt: keeps record of the number of
- * times the shell's main loop has been run.
- * @name: the program name.
- * @pti: array of two integers storing
- * return values from printfext2() function calls.
- * @fd: file descriptor of the file to write to.
- * @quick_exit: int determining whether to exit the shell loop (0) or not (1).
- * @null_term: int determining whether to
- * null-terminate read input to be parsed by EOF_handler.
- * @quote: an int determining whether to tokenize quoted strings (0) or not (1)
- * @free0: an int determining whether to free str_ar[0] or not (0).
- * @bltin_nm: array of strings storing the names of built-in shell commands.
- * @pid: an object storing the shell's process id.
- * @noscript: int indicating whether input is from a script file (0), or not (1).
- * @content: a message string about the struct contents.
  */
 typedef struct shell
 {
 	int exstat;
-	char ***envp;
 	char **alias;
-	char **newalias;
-	int is_aliascmd;
-	unsigned long int loop_cnt;
-	char *name;
-	int pti[2];
-	int fd;
-	int quick_exit;
-	int null_term;
-	int quote;
-	int free0;
-	char *bltin_nm[7];
-	pid_t pid;
-	int noscript;
-	char *content;
 } shell_t;
+shell_t shell;
 
 
 /**
- * struct mallocd - structure storing static
- * arrays of pointers to malloc'd addresses.
- * @ptc: static array of pointers to char.
- * @pti: static array of pointers to int.
- * @pptc: static array of pointers to pointers to char.
+ * struct pf - data structure for printf
+ * @pti: array of two integers storing
+ * @fd: file descriptor of the file to write to.
+ * return values from printfext2() function calls.
  */
-typedef struct mallocd
+typedef struct pf
 {
-	char *ptc[100];
-	int *pti[100];
-	char **pptc[100];
-	int ci;
-	int ii;
-	int pi;
-} mallocd_t;
-
-
+	int pti[2];
+	int fd;
+} pf_t;
+pf_t printf3;
 
 char *_memcpy(char *dest, char *src, unsigned int n);
 char *_memset(char *s, char b, unsigned int n);
@@ -256,21 +205,10 @@ int str2posint(char *str);
 void tr2(char **str, char delim);
 
 
-/* management of dynamically allocated memory */
-mallocd_t *mallocd_adds(mallocd_t *mallocd, char *type, ...);
-void init_mallocd(mallocd_t *mallocd);
-void handle_dup_ptrs(mallocd_t *mallocd);
-void free_mallocd(char *skip, ...);
-void freeptc(char **ptc);
-void freepti(int **pti);
-void freepptc(char ***pptc);
-
-
 /* simple shell */
 char **str_arr(char *str, const char *delim);
 char *strtok2(char *str, const char *delim, int quote);
-void handle_realloc(char ***str_ar, int i,
-		int bsize, int *old_bsize, int *bsize_total);
+void handle_realloc(char ***str_ar, int i, int bsize, int *bsize_total);
 void handle_realloc2(char **buff,
 		unsigned int *old_bsize, unsigned int *bsize, char *line);
 size_t handle_strlen(char *str, size_t len, int i, int n);
@@ -298,8 +236,7 @@ int launch_builtins(char **sarr, char ***envp, int n, int *status, int *free);
 int launch_other(char **sarr, char **envp);
 int launcher(char **str_ar, char ***envp,
 		char *bltin_nm[], int *status, int *free);
-ssize_t getline3(char **line, size_t *n,
-		FILE *stream __attribute__((unused)));
+ssize_t getline3(char **line, size_t *n, FILE * stream __attribute__((unused)));
 int val_line(char **input);
 int exit2(char **sarr, char ***envp __attribute__((unused)),
 		int *status, int *free __attribute__((unused)));
@@ -316,31 +253,7 @@ int upd_alias_val(char **sarr, char ***alias);
 int upd_alias_noval(char **sarr, char ***alias);
 int print_alias(char **sarr, char ***alias);
 void find_quote(char **ptc, int *n);
-void init_shell(shell_t *shell, char *av0);
-shell_t *shstruct(shell_t *shell);
-int iscmd(char *cmd_name, char **envp);
-int mclTTY2(char *shell_nm, int *b, char ***envp,
-		int *status, int *_free, char **bltin_nm, char *line);
-void psarr(char **sarr, char c);
-int handle_mall(void *buff);
-void pipe_parser(char *line, char **envp);
-void pstr(char *str, char c);
-int isscript(char *buff, char *sh);
-int is_binsh(char *filename);
-int isexec(struct stat *st, char *filename);
-int handle_strlen2(char *str);
-int is_mult_cmd(char *line);
-int is_ORAND(char *str);
-int mult_cmd_launcherORAND(char *shell_nm, int *b, char ***envp,
-		int *status, int *_free, char **bltin_nm, char *line);
-char *getalias(char *name);
-char *isalias(const char *cmd_name);
-int char_srchANY(char *str, char xter);
-int is_newalias(char *cmd_name);
-char *itoa2(int n);
-ssize_t EOF_handler(char **buff, unsigned int old_size, int a,
-		ssize_t m, size_t *n, char **line, unsigned int bsize);
-ssize_t handle_script(char *name, char **line, size_t *n);
+
 
 
 
