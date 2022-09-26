@@ -1,27 +1,22 @@
 #include <stdio.h>
-#include "main.h"
 
-int pf(const char *f, ...)
+int gcd(int a, int b);
+long int int2mod(long int num, long int mod);
+int mod_inverse(int num, int mod);
+long int bigpwr2mod(long int base, long int idx, long int mod);
+
+
+int main(void)
 {
-	va_list ap;
+	int a, b;
 
-	va_start(ap, f);
-	return (1);
-}
+	a = 688749;
+	b = 254339;
 
-int main()
-{
-	int b, c;
-
-
-	//a = 0xff / 0x33;
-	//b = _printf("Nuclear %s plan%c num%c%s: %x\n", "power", 't', 'b', "er", 255);
-	b = _printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
-	c = printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
-	//b = pf("dummy");
-	//b = printid(a);
-	//printf("\n%b\n", 5);
-	printf("b: %d\tc: %d\n", b, c);
+	//printf("GCD of %d and %d: %d\n", a, b, gcd(a, b));
+	//printf("%d in mod %d is %d\n", a, b, int2mod(a, b));
+	//printf("Inverse of %d mod %d == %d\n", a, b, mod_inverse(a, b));
+	printf("%ld\n", bigpwr2mod(a, b, 701111));
 
 	return (0);
 }
