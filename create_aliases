@@ -82,4 +82,6 @@ alias rdme="~/utility_functions/readme_filler/rdme"
 
 alias grep2="~/utility_functions/grep2/grep2"
 
+alias pcs="pycodestyle --first"
+
 
