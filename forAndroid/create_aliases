@@ -1,0 +1,87 @@
+#!/bin/bash
+
+alias c1="/data/data/com.termux/files/home/Utility_C-functions/1"
+alias c2="/data/data/com.termux/files/home/Utility_C-functions/2"
+alias g="/data/data/com.termux/files/home/Utility_C-functions/g"
+alias bs="/data/data/com.termux/files/home/Utility_C-functions/betty-style.pl"
+alias bd="~/Utility_C-functions/betty-doc.pl"
+alias a="./a.out"
+alias calx="cd /data/data/com.termux/files/home/alx-low_level_programming"
+
+export alx="/home/vagrant/alx-low_level_programming"
+
+export ll5="/home/vagrant/alx-low_level_programming/0x05-pointers_arrays_strings"
+
+export uf="/data/data/com.termux/files/home/Utility_C-functions"
+
+export ll4="/home/vagrant/alx-low_level_programming/0x04-more_functions_nested_loops"
+
+export ll3="/home/vagrant/alx-low_level_programming/0x03-debugging"
+
+export ll2="/home/vagrant/alx-low_level_programming/0x02-functions_nested_loops"
+
+export ll1="/home/vagrant/alx-low_level_programming/0x01-variables_if_else_while"
+
+export ll0="/home/vagrant/alx-low_level_programming/0x00-hello_world"
+
+export ll6="/home/vagrant/alx-low_level_programming/0x06-pointers_arrays_strings"
+
+export ll7="/home/vagrant/alx-low_level_programming/0x07-pointers_arrays_strings"
+
+export ll8="/home/vagrant/alx-low_level_programming/0x08-recursion"
+
+export ll9="/home/vagrant/alx-low_level_programming/0x09-static_libraries"
+
+export lla="/home/vagrant/alx-low_level_programming/0x0A-argc_argv"
+
+export llb="/home/vagrant/alx-low_level_programming/0x0B-malloc_free"
+
+export llc="/home/vagrant/alx-low_level_programming/0x0C-more_malloc_free"
+
+export lld="/home/vagrant/alx-low_level_programming/0x0D-preprocessor"
+
+export lle="/home/vagrant/alx-low_level_programming/0x0E-structures_typedef"
+
+export llf="/home/vagrant/alx-low_level_programming/0x0F-function_pointers"
+
+export ll10="/home/vagrant/alx-low_level_programming/0x10-variadic_functions"
+
+export c="/vagrant/Downloads/cp.c"
+
+alias gcce="gcc -Wall -pedantic -Werror -Wextra -std=gnu89"
+
+alias cutils="/data/data/com.termux/files/home/Utility_C-functions/cutils.sh"
+
+export pf="/home/vagrant/printf"
+
+export ll12="/home/vagrant/alx-low_level_programming/0x12-singly_linked_lists"
+
+export ll13="/home/vagrant/alx-low_level_programming/0x13-more_singly_linked_lists"
+
+export ll14="/home/vagrant/alx-low_level_programming/0x14-bit_manipulation"
+
+alias f="find . -maxdepth 1 -type f -name \*.c ! -name \*main.c"
+
+alias cto="/data/data/com.termux/files/home/Utility_C-functions/alias_files/cto"
+
+alias cfrom="/data/data/com.termux/files/home/Utility_C-functions/alias_files/cfrom"
+
+export ll15="/home/vagrant/alx-low_level_programming/0x15-file_io"
+
+export sshell="/home/vagrant/simple_shell"
+
+alias rm="rm -i"
+
+alias cpy="/data/data/com.termux/files/home/Utility_C-functions/copy/cpy"
+
+alias rdl="~/Utility_C-functions/readlist/rdl"
+
+alias popl="/data/data/com.termux/files/home/Utility_C-functions/readlist/pop.sh"
+
+alias rdme="/data/data/com.termux/files/home/Utility_C-functions/readme_filler/rdme"
+
+alias grep2="/data/data/com.termux/files/home/Utility_C-functions/grep2/grep2"
+
+alias pcs="pycodestyle --first"
+
+
