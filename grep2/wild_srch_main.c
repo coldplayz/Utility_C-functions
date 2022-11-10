@@ -93,7 +93,7 @@ int main(int ac, char **argv)
 		}
 		for (j = 0; token; j++)
 		{
-			if (wild_srch(token, argv[1]))
+			if (wild_srch2(token, argv[1]))
 			{
 				buff2 = wild_srch2(token, argv[1]);
 				/* printf("\033[0;35m%s:\033[0;33m%d\t%s\033[0m\n", argv[i], line_no, token); */
