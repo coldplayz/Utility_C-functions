@@ -4,6 +4,8 @@ git clone https://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@github.com/coldplayz/
 
 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
 
+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
+
 git clone https://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@github.com/coldplayz/github_practice.git
 
 https://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@github.com/coldplayz/simple_shell
@@ -16,7 +18,7 @@ https://miro.com/welcome/TkcyNUF4Sm4yWUdUT3lhaDdhVVlmV0U5TzZHV1NKbkRkSTBHOEF5WTM
 
 git clone https://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@github.com/coldplayz/alx-zero_day.git
 
-git clone https://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@github.com/coldplayz/alx-system_engineering-devops.git
+git clone https://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@github.com/coldplayz/alx-system_engineering-devops.git
 
 git clone https://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@github.com/coldplayz/alx-low_level_programming
 
