@@ -8,6 +8,12 @@ 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
 
 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
 
+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
+
+https://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@github.com/coldplayz/binary_trees.git
+
+git clone https://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@github.com/BongweKE/temp_tests
+
 git clone https://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@github.com/coldplayz/github_practice.git
 
 https://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@github.com/coldplayz/simple_shell
@@ -27,6 +33,8 @@ git clone https://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@github.com/coldplayz/
 git clone https://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@github.com/coldplayz/monty.git
 
 git clone https://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@github.com/coldplayz/sorting_algorithms.git
+
+git clone https://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github.com/BongweKE/AirBnB_clone
 
 cc50935 main
 8dbda91 update_script
