@@ -1,0 +1,11 @@
+# record-insertion options
+-nu == create and add new user
+-na == create and add new appliance
+
+# flag display options
+-df [operation] == display operation flags
+
+# flag [re]set options
+-sf operation flag == set operation flag
+-uc == reset users flag
+-ac == reset appliances flag
