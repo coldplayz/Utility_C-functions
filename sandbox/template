@@ -1,0 +1,9 @@
+sb1=$(grep  "sandbox1=" f)
+echo "$sb1"
+
+if [ -n "$sb1" ]
+then
+	sed -i "s/$sb1/alias sandbox1='REPLACED'/" f
+else
+	echo -e "\nAPPENDED" >> f
+fi

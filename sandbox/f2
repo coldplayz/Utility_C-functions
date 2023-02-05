@@ -1,0 +1,7 @@
+alias sand=line1
+
+alias sandbox1='sshpass -p passwd ssh ubuntu@0.0.0.0'
+
+export sandbox12='sshpass -p passwd ssh ubuntu@8.8.8.9'
+
+alias aaaannnn='line7'
