@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+{% block content %}
+<p>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{{ messages[0] }}
+{% endif %}
+{% endwith %}
+</p>
+<form method="POST" action="{{ url_for('cus_auth_views.cus_login') }}" enctype="multipart/form-data">
+	<label for="uname">Enter username:</label>
+	<input type="text" id="uname" name="username" autocomplete="on" /><br><br>
+	<label for="pwd">Enter password:</label>
+	<input type="password" id="pwd" name="password" autocomplete="on" /><br><br>
+	<label for="upload1">Select a file to upload:</label>
+	<input type="file" id="upload1" name="userFile" /><br><br>
+	<input type="checkbox" name="check" value="rem" />Remember me<br><br>
+	<input type="submit" value="Submit Credentials" />
+</form>
+{% endblock %}
