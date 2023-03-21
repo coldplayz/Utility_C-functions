@@ -1,0 +1,15 @@
+@login_manager.user_loader
+def load_user(user_id):
+    ''' Retrieves and returns a specific customer object for the login manager
+    '''
+    with app.app_context():
+    '''
+    - app. context is required to use the session/engine.
+    - user_id is a string; need to cast to appropriate type for get query.
+    - user_id is provided from the session as managed by login manager.
+    '''
+    if session['account_type'] == 'customer':
+        # Return customer object or None
+        return db.session.get(Customers, user_id)
+
+    return db.session.get(ServiceProviders, user_id)

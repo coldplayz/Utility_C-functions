@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HELLO PAGE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+    </head>
+        <body>
+		<div style="width: 100%; text-align: right; background-color: green">
+			<a href={{ url_for('cus_auth_views.cus_index') }} style="color: white">Home</a>
+			<a href={{ url_for('cus_auth_views.cus_login') }} style="color: white">Login</a>
+			<a href={{ url_for('cus_auth_views.cus_signup') }} style="color: white">Signup</a>
+			<a href={{ url_for('cus_auth_views.cus_logout') }} style="color: white">Logout</a>
+		</div>
+		<div>
+		{% block content %}
+		{% endblock%}
+		</div>
+        </body>
+</html>
