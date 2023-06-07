@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 ''' Model definition for customers table.'''
-from models import db
+from api.v1.views import db
 from datetime import datetime
 from uuid import uuid4
 from werkzeug.security import generate_password_hash
@@ -19,6 +19,7 @@ class Customers(UserMixin, db.Model):
     last_name = db.mapped_column(db.String(15), nullable=False)
     phone = db.mapped_column(db.String(15), unique=True)
     email = db.mapped_column(db.String(30), nullable=False, unique=True)
+    image_uri = db.mapped_column(db.String(100))
     username = db.mapped_column(db.String(15), nullable=False, unique=True)
     password = db.mapped_column(db.String(100), nullable=False)
     created_at = db.mapped_column(
@@ -35,6 +36,11 @@ class Customers(UserMixin, db.Model):
             "Reviews",
             backref="customer",
             cascade="all, delete-orphan"
+            )
+
+    # Table constraints
+    __table_args__ = (
+            db.CheckConstraint('image_uri LIKE "%.jpg"', name='check_image_extention'),
             )
 
     def __init__(self, *args, **kwargs):

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 ''' Model definition for locations table.'''
-from models import db
+from api.v1.views import db
 
 
 class Locations(db.Model):

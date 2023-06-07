@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HELLO PAGE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+    </head>
+        <body>
+		<div style="width: 100%; text-align: right; background-color: green">
+			<a href={{ url_for('cus_auth_views.cus_index') }} style="color: white">Home</a>
+			{% if not current_user.is_authenticated %}
+			<a href={{ url_for('cus_auth_views.cus_login') }} style="color: white">Login</a>
+			{% endif %}
+			{% if not current_user.is_authenticated %}
+			<a href={{ url_for('cus_auth_views.cus_signup') }} style="color: white">Signup</a>
+			{% endif %}
+			{% if current_user.is_authenticated %}
+			<a href={{ url_for('cus_auth_views.cus_logout') }} style="color: white">Logout</a>
+			{% endif %}
+			{% if current_user.is_authenticated %}
+			<a href={{ url_for('cus_auth_views.cus_profile_put', id=current_user.id) }}>Edit Profile</a>
+			{% endif %}
+		</div>
+		<div>
+			<form action="{{ url_for('guest_apis.search_services', n=n) }}">
+				<!-- countries -->
+				<label for="country">Country:</label>
+				<select name="country" id="country" required>
+					<option value="">Select country</option>
+					{% if countries %}
+					{% for country in countries %}
+					<option value="{{ country.id }}">{{ country.name }}</option>
+					{% endfor %}
+					{% endif %}
+				</select>
+				<!-- states -->
+				<label for="state">State:</label>
+				<select name="state" id="state">
+					<option value="">Select state</option>
+					{% if states %}
+					{% for state in states %}
+					<option value="{{ state.id }}">{{ state.name }}</option>
+					{% endfor %}
+					{% endif %}
+				</select>
+				<!-- locations -->
+				<label for="location">Location:</label>
+				<select name="location" id="location">
+					<option value="">Select location</option>
+					{% if locations %}
+					{% for location in locations %}
+					<option value="{{ location.id }}">{{ location.name }}</option>
+					{% endfor %}
+					{% endif %}
+				</select>
+				<!-- service categories -->
+				<label for="service_category">Service Category:</label>
+				<select name="service_category" id="service_category" required>
+					<option value="">Select service category</option>
+					{% if service_categories %}
+					{% for service_category in service_categories %}
+					<option value="{{ service_category.id }}">{{ service_category.name }}</option>
+					{% endfor %}
+					{% endif %}
+				</select>
+				<input type="submit" value="Submit" />
+			</form>
+		</div>
+		<div>
+		{% block content %}
+		{% endblock%}
+		</div>
+        </body>
+</html>

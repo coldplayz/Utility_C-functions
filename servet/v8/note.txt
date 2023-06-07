@@ -1,0 +1,1 @@
+- implemented authentication blueprint for service providers

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 ''' Model definition for service providers table.'''
-from models import db
+from api.v1.views import db
 from datetime import datetime
 from uuid import uuid4
 from werkzeug.security import generate_password_hash

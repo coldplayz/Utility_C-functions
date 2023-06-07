@@ -1,0 +1,38 @@
+@guest_apis.route('/services/<sps_id>')
+def one_service(sps_id):
+    ''' Returns details about a specific service-provider service.
+    '''
+    # Fetch service details
+    stmt = db.select(ServiceProviders.first_name, ServiceProviders.last_name, ServiceCategories.name, ServiceProviderServices.image_uri, ServiceProviderServices.rating, ServiceProviderServices.service_description).select_from(ServiceProviderServices).join(ServiceCategories).join(ServiceProviders).where(ServiceProviderServices.id==int(sps_id))
+    details_row = db.session.execute(stmt).one()
+
+    # Fetch all reviews for the specified service
+    stmt = db.select(Reviews.review_content, Reviews.updated_at, Customers.first_name, Customers.last_name).join(Customers).join(ServiceProviderServices).where(ServiceProviderServices.id==int(sps_id))
+    reviews_rows_list = db.session.execute(stmt).all()
+    ''' returns list of reviews details rows.'''
+
+    # json_data =
+
+    # Prepare the data in json_serializable forms
+    first_name = details_row.first_name
+    last_name = details_row.last_name
+    image_uri = details_row.image_uri
+    rating = float(details_row.rating)  # for serializability
+    description = details_row.service_description
+
+    json_data = dict(first_name=first_name, last_name=last_name, image_uri=image_uri, rating=rating, description=description)
+
+    # Prepare list of reviews and associated details
+    reviews = []
+    for reviews_row in reviews_rows_list:
+        content = reviews_row.review_content
+        updated_at = reviews_row.updated_at.isoformat()  # make serializable
+        first_name = reviews_row.first_name
+        last_name = reviews_row.last_name
+        review_json = dict(content=content, customer_first_name=first_name, customer_last_name=last_name, updated_at=updated_at)
+        reviews.append(review_json)
+
+    # Add reviews list to return data
+    json_data.update({"reviews": reviews})
+
+    return jsonify(json_data)

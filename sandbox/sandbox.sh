@@ -39,17 +39,17 @@ then
 	echo "$description" > ~/Utility_C-functions/sandbox/sandbox.about
 
 	# Join all read strings together
-	val="sshpass -p $password ssh ${username}@${host}"
+	val="sshpass -p $password ssh -o strictHostKeyChecking=no ${username}@${host}"
 
 	# Modify /data/data/com.termux/files/usr/etc/bash.bashrc with new sandbox1 alias
-	sb1=$(sudo grep  "sandbox1=" /data/data/com.termux/files/usr/etc/bash.bashrc)
+	sb1=$(sudo grep  "sandbox1=" /etc/bash.bashrc)
 	# echo "$sb1"
 
 	if [ -n "$sb1" ]
 	then
-		sudo sed -i "s/$sb1/sandbox1='""${val}'/" /data/data/com.termux/files/usr/etc/bash.bashrc
+		sudo sed -i "s/$sb1/sandbox1='""${val}'/" /etc/bash.bashrc
 	else
-		echo -e "\n""sandbox1='""${val}'" | sudo tee -a /data/data/com.termux/files/usr/etc/bash.bashrc > /dev/null
+		echo -e "\n""sandbox1='""${val}'" | sudo tee -a /etc/bash.bashrc > /dev/null
 	fi
 
 	# Source the bashrc file

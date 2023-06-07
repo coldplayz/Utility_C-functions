@@ -1,38 +1,19 @@
 #!/usr/bin/env python3
 ''' Views and APIs for customers.'''
-from api.v1.views import cus_auth_views, cus_apis
-from flask import request, render_template, redirect, url_for, flash, abort
-from models import db, app, Customers
+from flask import (
+        request, render_template, redirect,
+        url_for, flash, abort, session, Blueprint,
+        current_app
+        )
+# from models import db, Customers, is_safe_url
 from flask_login import (
-        LoginManager, login_user, logout_user, login_required, current_user)
+        login_user, logout_user, login_required, current_user
+        )
 from werkzeug.security import check_password_hash
-from urllib.parse import urlparse, urljoin
+from uuid import uuid4
 
-# Create login manager for customers
-cus_login_manager = LoginManager()
-cus_login_manager.login_view = 'cus_auth_views.login'
-cus_login_manager.init_app(app)
-
-
-# Function for validating `next` URLs in query strings
-def is_safe_url(target):
-    ref_url = urlparse(request.host_url)
-    test_url = urlparse(urljoin(request.host_url, target))
-    return test_url.scheme in ('http', 'https') and \
-            ref_url.netloc == test_url.netloc
-
-
-@cus_login_manager.user_loader
-def cus_load_user(user_id):
-    ''' Retrieves and returns a specific customer object for the login manager
-    '''
-    with app.app_context():
-        '''
-        - app. context is required to use the session/engine.
-        - user_id is a string; need to cast to appropriate type for get query.
-        - user_id is provided from the session as managed by login manager.
-        '''
-        return db.session.get(Customers, user_id)  # returns cus. obj or None
+cus_auth_views = Blueprint(
+        'cus_auth_views', __name__, url_prefix='/customers')
 
 
 @cus_auth_views.route('/login')
@@ -45,6 +26,7 @@ def cus_login():
 def cus_login_post():
     ''' Authenticate posted login information, and log customer in.
     '''
+    from api.v1.views import db, Customers, is_safe_url
     # Retrieve provided login information
     username = request.form.get('username')
     password = request.form.get('password')
@@ -59,17 +41,18 @@ def cus_login_post():
     else:
         cus = None
 
-    # Handle failed authentocation
+    # Handle failed authentication
     if not cus or not check_password_hash(cus.password, password):
         # Flash an error message to display
-        flash("Invalid username and/or password")
+        flash("Invalid username and/or password", "invalid_usr_pwd")
         # Redirect to login page to try again
         return redirect(url_for('cus_auth_views.cus_login'))
 
     # Customer exists and is authenticated
+    session['account_type'] = 'customer'
     login_user(cus, remember=remember)  # log in the user into session
 
-    flash('Logged in successfully.')
+    # flash('Logged in successfully.')
 
     # Retrieve next URL, if available
     nextp = request.args.get('next')
@@ -84,27 +67,210 @@ def cus_login_post():
     if not is_safe_url(nextp):
         abort(400, description="`next` URL not safe")
 
-    return redirect(nextp or url_for('cus_auth_views.cus_profile'))
+    return redirect(nextp or url_for('cus_auth_views.cus_profile', id=cus.id))
 
 
-@cus_auth_views.route('/profile')
-def cus_profile():
+@cus_auth_views.route('/<id>/profile')
+@login_required
+def cus_profile(id):
     ''' Customer profile endpoint.
     '''
-    return '<center style="background-color: green; color: white">This is your profile page!</center>'
+    return render_template('cus_auth/profile.html')
+
+
+@cus_auth_views.route('/<id>/profile/edit')
+@login_required
+def cus_profile_get(id):
+    ''' Returns customer profile editing form.
+    '''
+    return render_template('cus_auth/profile_edit.html', id=id, n=str(uuid4()))
+
+
+@cus_auth_views.route('/<id>/profile/edit', methods=['POST'])
+def cus_profile_put(id):
+    ''' Processes form data to update a customer's record.
+    '''
+    from api.v1.views import db, Customers
+    # Collect update details
+    first_name = request.form.get('first_name')
+    last_name = request.form.get('last_name')
+    email = request.form.get('email')  # unique
+    phone = request.form.get('phone')  # unique
+    username = request.form.get('username') # must be unique in storage
+    # todo: validate and save image to file system :done VSFS
+    image = request.files.get(
+            'profile_pic')  # file object representing image data
+
+    # Retrieve customer object from database
+    stmt = db.select(Customers).where(Customers.id==id)
+    existing_cus = db.session.scalars(stmt).first()
+
+    # Validate username
+    if username:
+        stmt = db.select(Customers).where(Customers.username==username)
+        cus = db.session.scalars(stmt).first()
+        if not existing_cus.username==username and cus:
+            # username already exists
+            flash(
+                    'username already exists. Please try another',
+                    'username_exists'
+                    )  # include message category
+            return redirect(url_for('cus_auth_views.cus_profile_get', id=id, n=str(uuid4())))
+        existing_cus.username = username
+
+    if not username:
+        old_username = existing_cus.username
+
+    # Set image identifier
+    if image.filename or username:
+        # If the user does not select a file, the browser submits an...
+        # ...empty file without a filename ('').
+        if username:
+            image_uri = current_app.config["CUS_IMAGE_RPATH"] + username + '.jpg'
+        else:
+            # New profile pic but old username
+            image_uri = current_app.config["CUS_IMAGE_RPATH"] + old_username + '.jpg'
+        # todo: implement deleting image files...
+        # ...redundant as a result of a change of usernames
+    else:
+        image_uri = None
+
+    # Validate email
+    if email:
+        stmt = db.select(Customers).where(Customers.email==email)
+        cus = db.session.scalars(stmt).first()
+        if not existing_cus.email==email and cus:
+            # email already exists
+            flash('email already exists. Please try another', 'email_exists')
+            return redirect(url_for('cus_auth_views.cus_profile_get', id=id, n=str(uuid4())))
+        existing_cus.email = email
+
+    # Validate phone
+    if phone:
+        stmt = db.select(Customers).where(Customers.phone==phone)
+        cus = db.session.scalars(stmt).first()
+        if not existing_cus.phone==phone and cus:
+            # phone number already exists
+            flash('phone already exists. Please try another', 'phone_exists')
+            return redirect(url_for('cus_auth_views.cus_profile_get', id=id, n=str(uuid4())))
+        existing_cus.phone = phone
+
+    # Update customer record with validated data
+    if first_name:
+        existing_cus.first_name = first_name
+    if last_name:
+        existing_cus.last_name = last_name
+    if image_uri:
+        existing_cus.image_uri = image_uri
+
+    db.session.add(existing_cus)
+    db.session.commit()
+
+    # Save image to file system ONLY now
+    if image.filename:
+        image.save(
+                current_app.config["CUS_IMAGE_PATH"] + username + '.jpg'
+                )  # VSFS
+
+    return redirect(url_for('cus_auth_views.cus_profile', id=id))
 
 
 @cus_auth_views.route('/')
 def cus_index():
-    return render_template('index.html')
+    ''' Endpoint for site homepage.
+    '''
+    return render_template('baseCUS.html')
 
 
 @cus_auth_views.route('/logout')
+@login_required
 def cus_logout():
+    ''' Log a sign-in user out of the session.
+    '''
     logout_user()
     return redirect(url_for('cus_auth_views.cus_index'))
 
 
 @cus_auth_views.route('/signup')
 def cus_signup():
-    return "Sign up!"
+    ''' Return signup form.'''
+    return render_template('cus_auth/signup.html', val=str(uuid4()))
+
+
+@cus_auth_views.route('/signup', methods=['POST'])
+def cus_signup_post():
+    ''' Process customer registration.
+    '''
+    from api.v1.views import db, Customers
+    # Collect registration details
+    first_name = request.form.get('first_name')
+    last_name = request.form.get('last_name')
+    email = request.form.get('email')  # unique
+    phone = request.form.get('phone')  # unique
+    username = request.form.get('username') # must be unique in storage
+    password = request.form.get('password')
+    # todo: validate and save image to file system :done VSFS
+    image = request.files.get(
+            'profile_pic')  # file object representing image data
+
+    # Validate username
+    stmt = db.select(Customers).where(Customers.username==username)
+    cus = db.session.scalars(stmt).first()
+    if cus:
+        # username already exists
+        flash(
+                'username already exists. Please try another',
+                'username_exists'
+                )  # include message category
+        return redirect(url_for('cus_auth_views.cus_signup', id=str(uuid4())))
+    # else set image identifier
+    if image.filename:
+        # If the user does not select a file, the browser submits an...
+        # ...empty file without a filename ('').
+        image_uri = current_app.config["CUS_IMAGE_RPATH"] + username + '.jpg'
+    else:
+        image_uri = None
+
+    # Validate email
+    stmt = db.select(Customers).where(Customers.email==email)
+    cus = db.session.scalars(stmt).first()
+    if cus:
+        # username already exists
+        flash('email already exists. Please try another', 'email_exists')
+        return redirect(url_for('cus_auth_views.cus_signup', id=str(uuid4())))
+
+    # Validate phone
+    stmt = db.select(Customers).where(Customers.phone==phone)
+    cus = db.session.scalars(stmt).first()
+    if cus:
+        # phone number already exists
+        flash('phone already exists. Please try another', 'phone_exists')
+        return redirect(url_for('cus_auth_views.cus_signup', id=str(uuid4())))
+
+    # Persist validated data to database
+    new_cus = Customers(
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone,
+            username=username,
+            password=password,
+            image_uri=image_uri
+            )
+    db.session.add(new_cus)
+    db.session.commit()
+
+    # Save image to file system ONLY now
+    if image.filename:
+        image.save(
+                current_app.config["CUS_IMAGE_PATH"] + username + '.jpg'
+                )  # VSFS
+
+    return redirect(url_for('cus_auth_views.cus_login'))
+
+
+@cus_auth_views.route('<id>/static/<path:uri>')
+def cus_static(id, uri):
+    ''' Endpoint for static file requests.
+    '''
+    return redirect(url_for('static', filename=uri))

@@ -1,0 +1,3 @@
+stmt = db.select(ServiceProviderServices).join(ServiceCategories).join(ServiceProviders).join(Locations).where(db.and_(ServiceCategories.name=='Plumbing', Locations.id==2))
+
+https://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@github.com/Scaarif/ServetMVP

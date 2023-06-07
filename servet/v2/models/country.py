@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 ''' Model definition for countries table.'''
-from models import db
+from api.v1.views import db
 
 
 class Countries(db.Model):

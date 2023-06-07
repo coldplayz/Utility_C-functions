@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 ''' Model definition for service categories table.'''
-from models import db
+from api.v1.views import db
 
 
 class ServiceCategories(db.Model):
