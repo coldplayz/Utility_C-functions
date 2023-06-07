@@ -7,7 +7,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
 from sqlalchemy.exc import InvalidRequestError
 from sqlalchemy.orm.exc import NoResultFound
-# from models import Usage2
+from os import getenv
 from typing import Dict
 import sqlalchemy
 import bcrypt
@@ -22,7 +22,8 @@ class DB:
     def __init__(self) -> None:
         """Initialize a new DB instance
         """
-        self._engine = create_engine('mysql+mysqldb://testuser:44384439@localhost/gas_usage', echo=False)
+        pwd = getenv('DBPWD')
+        self._engine = create_engine(f'mysql+mysqldb://testuser:{pwd}@localhost/gas_usage', echo=False)
         # Base.metadata.drop_all(self._engine)
         Base.metadata.create_all(self._engine)
         self.__session = None
