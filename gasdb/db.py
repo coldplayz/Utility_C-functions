@@ -39,6 +39,8 @@ class DB:
 
     def add_usage(self, cls, **kwargs):
         """ Records new usage.
+
+        cls should be a usage_refill_N model class
         """
         # create a usage object
         usage = cls(**kwargs)
@@ -47,6 +49,18 @@ class DB:
         # save User to database
         sess.add(usage)
         sess.commit()
+
+    def get_use_cases(self, cls):
+        """ Get the current list of use cases from the database.
+
+        cls should be the use_cases model class
+        """
+        sess = self._session
+
+        use_cases = sess.query(cls.use_case).all()
+        use_cases = [row.use_case for row in use_cases]
+
+        return use_cases
 
 
 

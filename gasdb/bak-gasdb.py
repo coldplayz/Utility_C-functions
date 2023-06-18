@@ -1,42 +1,84 @@
 #!/usr/bin/env python3
 """ SQLAlchemy model.
 """
-from sqlalchemy import Integer, String, Enum, DateTime, TIMESTAMP, Column
-from sqlalchemy.orm import declarative_base
-from datetime import datetime
+from db import DB
+from models import Usage1
+from sqlalchemy.exc import DataError
+import readline
 
-Base = declarative_base()
 
-
-class UseCase(Base):
-    """ use_cases table model class.
+class Attr:
+    """ Class to manage GasDB attributes on insert.
     """
-    __tablename__ = 'use_cases'
-
-    id = Column(Integer, primary_key=True)
-    use_case = Column(String(255), nullable=False, unique=True)
-    category = Column(String(255), nullable=False)
+    def __init__(self, **kwargs):
+        for k, v in kwargs.items():
+            setattr(self, k, v)
 
 
-class Usage1(Base):
-    """ User class to model user objects.
+class GasDB:
+    """ Interface for communicating with the `gas_usage` database.
     """
-    __tablename__ = 'usage_refill_1'
+    def add_usage_refill_N(self):
+        """ Collect field data.
+        """
+        # attr = {}
 
-    id = Column(Integer, primary_key=True)
-    use_case = Column(String(255), nullable=False)
-    duration_minute = Column(Integer, nullable=False)
-    heat_level = Column(Enum('low', 'average', 'high'))
-    day_time = Column(Enum('morning', 'afternoon', 'evening'))
-    use_date = Column(TIMESTAMP, default=datetime.utcnow)
+        use_case: str = input('use_case: ')
+        duration_minute: int = int(input('duration_minute: '))
+        heat_level: str = input('heat_level: ')
+        day_time: str = input('day_time: ')
+
+        use_date = input('use_date: ')
+        use_date = use_date if use_date else None
+
+        # attr.update(use_case=use_case, duration_minute=duration_minute, heat_level=heat_level)
+
+        # define attributes to be saved, one-time;
+        # no other attributes are allowed to be added hereafter
+        attr = Attr(use_case=use_case, duration_minute=duration_minute, heat_level=heat_level, day_time=day_time, use_date=use_date)
+
+        inp = input(f'\n{attr.__dict__}\n\nDo you want to save this data? y or n: ')
+
+        while inp == 'n' or inp == '':
+            print('\nEnter your changes. Format:\n\tkey1=value1,Key2=value2')
+            changes = input('\nEnter changes: ')
+
+            if changes:
+                # parse input in a form that Dict.update can take
+                parsed_changes_tmp = changes.split(',')
+                parsed_changes = [tuple(item.split('=')) for item in parsed_changes_tmp]
+
+                invalid_attrs = []
+                for k, v in parsed_changes:
+                    # save all valid attributes, collecting invalid ones
+                    if hasattr(attr, k):
+                        setattr(attr, k, v)
+                    else:
+                        invalid_attrs.append(k)
+                if invalid_attrs:
+                    print(f'\nInvalid attributes: {invalid_attrs}')
+
+            inp = input(f'\n{attr.__dict__}\n\nDo you want to save this data? y or n: ')
+
+        if inp == 'y':
+            print('Collation complete! Next...')
+            db = DB()
+            try:
+                db.add_usage(Usage1, **attr.__dict__)
+            except DataError as exc:
+                print(f'ERROR:', exc.orig)
+        else:
+            print('Not saved: invalid response input')
 
 
-''''
-class Usage2(Base):
-    """ User class to model user objects.
-    """
-    __tablename__ = 'usage_refill_2'
+gasdb = GasDB()
+gasdb.add_usage_refill_N()
+inp = input('\nDo you want to save more records? y or n: ')
+while inp == 'y':
+    gasdb.add_usage_refill_N()
+    inp = input('\nDo you want to save more records? y or n: ')
 
+'''
     id = Column(Integer, primary_key=True)
     use_case = Column(String(255), nullable=False)
     duration_minute = Column(Integer, nullable=False)
