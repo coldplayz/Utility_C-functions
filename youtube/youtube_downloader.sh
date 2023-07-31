@@ -5,7 +5,7 @@
 echo -n "Enter the video url: "
 read -r url
 
-echo -n "Enter the resolution. E.g. 360, 480, 1080: "
+echo -n "Enter the resolution. E.g. 216, 240, 360, 480, 1080: "
 read -r size
 
 # Original: yt-dlp -f 'bv*[height=360]+ba' https://youtu.be/lQNEW76KdYg -o '%(id)s.%(ext)s'
@@ -26,5 +26,5 @@ then
 	yt-dlp -f 'bv*[height=240]+ba' "$url" -o '
 %(title)s.%(ext)s'
 else
-	echo "Enter 360 or 480 as size"
+	yt-dlp -f "bv*[height=$size]+ba" "$url" -o '%(title)s.%(ext)s'
 fi
