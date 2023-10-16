@@ -167,6 +167,19 @@ class InputDecoder:
             C2='cook augmented okra',
             C3='cook 3 indomie',
             M='miscellaneous',
+            W9='warm potato and beans',
+            WA='warm corn',
+            WB='warm rice',
+            WC='warm augmented egusi',
+            WD='warm vegetable soup',
+            WE='warm rice and beans',
+            CB='cook egg and potato',
+            CC='cook potato and beans',
+            CE='cook rice',
+            CF='cook augmented egusi',
+            CG='cook vegetable soup',
+            CH='cook rice and beans',
+            P3='parboil potato',
             )
 
     DAY_TIME_MAP = dict(
@@ -220,11 +233,11 @@ class GasDB:
         """ Collect field data.
         """
         # prompt for data lists
-        # useDate_heatLevel: List[str] = eval(input('Enter use date and heat level\nFormat: [<use date>, <heat level>]: '))
-        useDate_heatLevel = ['2023-06-08', 'average']
+        useDate_heatLevel: List[str] = eval(input('Enter use date and heat level\nFormat: [<use date>, <heat level>]: '))
+        # useDate_heatLevel = ['2023-06-08', 'average']
         print(useDate_heatLevel)  # SCAFF
-        # uc_dt_dm: List[str] = eval(input('Enter other data\nFormat: [<use case>, <day time>, <duration_minute>]: '))
-        uc_dt_dm = ['B1:M:15', 'W4:M:12', 'W4:A:10']
+        uc_dt_dm: List[str] = eval(input('Enter other data. E.g: [\'B1:M:15\', \'W4:M:12\', \'W4:A:10\']\nFormat: [\'<use case>:<day time>:<duration_minute>\', ...]: '))
+        # uc_dt_dm = ['B1:M:15', 'W4:M:12', 'W4:A:10']
         print(uc_dt_dm)  # SCAFF
 
         decoder = InputDecoder()
@@ -266,7 +279,6 @@ class GasDB:
 
                 inp = input(f'\n{attr.__dict__}\n\nDo you want to save this data? y or n: ')
 
-            """
             if inp == 'y':
                 print('Collation complete! Next...')
                 # db = DB()
@@ -276,7 +288,6 @@ class GasDB:
                     print(f'ERROR:', exc.orig)
             else:
                 print('Not saved: invalid response input')
-            """
 
 
 gasdb = GasDB()
