@@ -1,0 +1,1 @@
+tsc search.ts --target es2015 --moduleResolution nodenext

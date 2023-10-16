@@ -1,1 +1,2 @@
 ubuntu20/
+**/*/node_modules/**/*
