@@ -7,7 +7,7 @@ read -r url
 
 # format_table="$(yt-dlp --list-formats --cookies '/home/userland/yt/youtube-cookies.txt' $url)"
 # echo -n "$format_table"
-echo -n "File info:"
+# echo -n "File info:"
 echo -n "$(node /home/userland/utilities/youtube/format-parser.js $url)"
 
 echo -n "Enter the resolution. E.g. 216, 240, 360, 480, 1080: "
