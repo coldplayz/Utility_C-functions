@@ -5,10 +5,14 @@
 echo -n "Enter the video url: "
 read -r url
 
-# format_table="$(yt-dlp --list-formats --cookies '/home/userland/yt/youtube-cookies.txt' $url)"
-# echo -n "$format_table"
-# echo -n "File info:"
-echo -n -e "$(node /home/userland/utilities/youtube/format-parser.js $url)"
+out="$(node ~/utilities/youtube/format-parser.js $url)"
+
+if [[ $? -eq 1 ]] # error status code from node process
+then
+  exit 1
+fi
+
+echo -n -e "$out"
 
 echo
 

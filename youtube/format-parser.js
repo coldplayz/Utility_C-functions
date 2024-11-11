@@ -2,7 +2,19 @@ import { execSync } from 'child_process';
 
 const url = process.argv[2];
 
-const formatTable = execSync(`yt-dlp --list-formats --cookies /home/userland/yt/youtube-cookies.txt ${url}`).toString();
+let formatTable;
+
+try {
+  formatTable = execSync(
+    `yt-dlp \
+      --list-formats \
+      --cookies /home/userland/yt/youtube-cookies.txt \
+      ${url}`
+  ).toString();
+} catch (err) {
+  console.log(err.stdout.toString());
+  process.exit(1);
+}
 
 const x = formatTable.split('\n');
 
@@ -26,6 +38,6 @@ for (const line of x) {
 
 // x2.forEach(console.log);
 
-console.log('Available formats:');
+console.log('Available resolutions:');
 console.log(`${x3}\n`);
 // console.log(formatTable);
