@@ -21,21 +21,30 @@ read -r size
 
 # Original: yt-dlp -f 'bv*[height=360]+ba' https://youtu.be/lQNEW76KdYg -o '%(id)s.%(ext)s'
 
-if [[ "$size" -eq 360 ]]
-then
-	yt-dlp -f 'bv*[height=360]+ba' --cookies '/home/userland/yt/youtube-cookies.txt' "$url" -o '%(title)s.%(ext)s'
-elif [[ "$size" -eq 480 ]]
-then
-	yt-dlp -f 'bv*[height=480]+ba' --cookies '/home/userland/yt/youtube-cookies.txt' "$url" -o '
-%(title)s.%(ext)s'
-elif [[ "$size" -eq 216 ]]
-then
-	yt-dlp -f 'bv*[height=216]+ba' --cookies '/home/userland/yt/youtube-cookies.txt' "$url" -o '
-%(title)s.%(ext)s'
-elif [[ "$size" -eq 240 ]]
-then
-	yt-dlp -f 'bv*[height=240]+ba' --cookies '/home/userland/yt/youtube-cookies.txt' "$url" -o '
-%(title)s.%(ext)s'
-else
-	yt-dlp -f "bv*[height=$size]+ba" --cookies '/home/userland/yt/youtube-cookies.txt' "$url" -o '%(title)s.%(ext)s'
-fi
+#if [[ "$size" -eq 360 ]]
+#then
+#	yt-dlp -f 'bv*[height=360]+ba' --cookies '/home/userland/yt/youtube-cookies.txt' "$url" -o '%(title)s.%(ext)s'
+#elif [[ "$size" -eq 480 ]]
+#then
+#	yt-dlp -f 'bv*[height=480]+ba' --cookies '/home/userland/yt/youtube-cookies.txt' "$url" -o '
+#%(title)s.%(ext)s'
+#elif [[ "$size" -eq 216 ]]
+#then
+#	yt-dlp -f 'bv*[height=216]+ba' --cookies '/home/userland/yt/youtube-cookies.txt' "$url" -o '
+#%(title)s.%(ext)s'
+#elif [[ "$size" -eq 240 ]]
+#then
+#	yt-dlp -f 'bv*[height=240]+ba' --cookies '/home/userland/yt/youtube-cookies.txt' "$url" -o '
+#%(title)s.%(ext)s'
+#else
+#	yt-dlp -f "bv*[height=$size]+ba" --cookies '/home/userland/yt/youtube-cookies.txt' "$url" -o '%(title)s.%(ext)s'
+#fi
+
+timestamp="$(date +%Y-%m-%dT%H-%M-%S)"
+logfile="$timestamp".log
+echo Log file: "$logfile"
+
+yt-dlp -f "bv*[height=$size]+ba" --cookies '/home/userland/yt/youtube-cookies.txt' "$url" -o '%(title)s.%(ext)s' >> "$logfile" && echo $timestamp DONE! &
+
+# echo $timestamp DONE!
+# tail -f <log file path> # stream logs real-time
