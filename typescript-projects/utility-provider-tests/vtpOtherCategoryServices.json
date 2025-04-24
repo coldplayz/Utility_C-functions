@@ -1,0 +1,14 @@
+{
+  "response_description": "000",
+  "content": [
+    {
+      "serviceID": "smsclone",
+      "name": "SMSclone.com",
+      "minimium_amount": "50",
+      "maximum_amount": "1000000",
+      "convinience_fee": "N0",
+      "product_type": "flexible",
+      "image": "https://sandbox.vtpass.com/resources/products/200X200/SMSclone.com.jpg"
+    }
+  ]
+}

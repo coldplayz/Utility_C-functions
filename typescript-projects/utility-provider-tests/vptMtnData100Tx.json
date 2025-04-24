@@ -1,0 +1,37 @@
+{
+  "code": "000",
+  "content": {
+    "transactions": {
+      "status": "delivered",
+      "product_name": "MTN Data",
+      "unique_element": "08011111111",
+      "unit_price": "100.00",
+      "quantity": 1,
+      "service_verification": null,
+      "channel": "api",
+      "commission": 4,
+      "total_amount": 96,
+      "discount": null,
+      "type": "Data Services",
+      "email": "obisann@gmail.com",
+      "phone": "+2348103665556",
+      "name": null,
+      "convinience_fee": 0,
+      "amount": "100.00",
+      "platform": "api",
+      "method": "api",
+      "transactionId": "17442269625668248828447130",
+      "commission_details": {
+        "amount": 4,
+        "rate": "4.00",
+        "rate_type": "percent",
+        "computation_type": "default"
+      }
+    }
+  },
+  "response_description": "TRANSACTION SUCCESSFUL",
+  "requestId": "20250409192916otherAlphanumericCharacters",
+  "amount": 100,
+  "transaction_date": "2025-04-09T19:29:22.000000Z",
+  "purchased_code": ""
+}
