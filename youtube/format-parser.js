@@ -1,6 +1,19 @@
 import { execSync } from 'child_process';
+import fs from 'fs';
 
 const url = process.argv[2];
+const mapPath = './formatsMap.json';
+
+const formatsMapString = fs.readFileSync(mapPath, 'utf8') || '{}';
+const formatsMap = JSON.parse(formatsMapString) || {};
+const formats = formatsMap?.[url];
+
+if (formats) {
+  // Video formats exist already for URL
+  console.log('Available resolutions:');
+  console.log(`${formats}\n`);
+  process.exit(0);
+} // else fetch anew
 
 let formatTable;
 
@@ -24,20 +37,20 @@ const x2 = x
 
 const x3 = [...new Set(x2)];
 
-/*
-const x2 = x.map((line) => {
-  return line.replace(/\b\s+\b/g, '+');
-});
-*/
-
-/*
-for (const line of x) {
-  console.log(`line===>>>> ${line}`);
-}
-*/
-
-// x2.forEach(console.log);
-
+// Save new formats and log
+fs.readFile(mapPath, 'utf8', (err, data) => {
+  if (err) {
+    // Maybe no such file yet; write to alternative file and investigate error.
+    console.log(err);
+    const initData = { [url]: x3 };
+    fs.writeFileSync(`${mapPath}-error-alt`, JSON.stringify(initData));
+  } else {
+    // Append to data
+    const formatsMap = JSON.parse(data || '{}') || {};
+    formatsMap[url] = x3;
+    fs.writeFileSync(mapPath, JSON.stringify(formatsMap));
+  }
+})
 console.log('Available resolutions:');
 console.log(`${x3}\n`);
 // console.log(formatTable);
