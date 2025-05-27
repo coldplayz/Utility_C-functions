@@ -54,12 +54,37 @@ export async function getBetProviders(_requestId = generateRequestId()) {
   return JSON.stringify(data);
 }
 
+/** Fetch wallet balance */
+export async function getBalance() {
+  // console.log(requestId, apiKey); // TODO: remove
+
+  const headers: HeadersInit = {
+    Authorization: `Bearer ${apiKey}`,
+    MerchantId: "coldplayz",
+    "Content-Type": "application/json",
+  };
+
+  const resp = await fetch(
+    `https://sandbox.giftbills.com/api/v1/check-balance`,
+    {
+      method: "POST",
+      headers,
+      mode: "cors",
+    }
+  );
+
+  console.log(resp.ok, resp.status);
+  const data = resp.ok ? await resp.json() : await resp.text();
+
+  return JSON.stringify(data);
+}
+
 /** Fund bet account */
 export async function payBet(requestId = generateRequestId()) {
   // console.log(requestId, apiKey); // TODO: remove
 
   const body = JSON.stringify({
-    provider: "2",
+    provider: "BET9JA",
     customerId: "1028707",
     amount: "200",
     reference: requestId,
@@ -100,7 +125,7 @@ export async function checkStatus(orderNumber: string) {
   // });
 
   const headers: HeadersInit = {
-    Authorization: `Bearer ${"apiKey"}`,
+    Authorization: `Bearer ${apiKey}`,
     MerchantId: "coldplayz",
     "Content-Type": "application/json",
     // Encryption: getHmacOf(JSON.parse(body)),
@@ -139,6 +164,6 @@ export const sortMapAsc = (map: Record<string, unknown>) => {
     }, {} as Record<string, unknown>);
 };
 
-payBet().then(console.log);
+getBalance().then(console.log);
 // checkStatus("REF_2025051520231450851241").then(console.log);
 // pay().then(console.log); REF_2025051520231450851241
