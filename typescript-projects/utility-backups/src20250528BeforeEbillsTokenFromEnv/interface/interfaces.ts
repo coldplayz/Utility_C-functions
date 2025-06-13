@@ -1,0 +1,30 @@
+import { ProviderTxStatus } from "./enums";
+
+export interface IUtilityStatusTxResult {
+  statusDocsWritten: boolean;
+}
+
+// TODO: add other metadata from the payment request to save in DB
+export interface IProviderPaymentResult {
+  status: ProviderTxStatus;
+  /** ID of the utility payment tx the provider generates and sends back to us */
+  providerOrderId: string;
+  metadata?: {
+    /** Token for recharging prepaid or postpaid electricity units */
+    token?: string;
+    /** The time at which a response is recieved from the provider */
+    acknowledgedAt?: number;
+    /** Wallet balance (at specific provider) before payment request is made */
+    balanceBefore?: number;
+    /** Wallet balance (at specific provider) after payment request is made */
+    balanceAfter?: number;
+  };
+}
+
+export interface IProviderRequeryResult {
+  status: ProviderTxStatus;
+  metadata?: {
+    /** Token for recharging prepaid or postpaid electricity units */
+    token?: string;
+  };
+}
