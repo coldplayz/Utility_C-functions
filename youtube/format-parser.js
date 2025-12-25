@@ -21,6 +21,8 @@ try {
   formatTable = execSync(
     `yt-dlp \
       --list-formats \
+      --js-runtimes node \
+      --remote-components ejs:github \
       --cookies /home/userland/yt/youtube-cookies.txt \
       ${url}`
   ).toString();
@@ -54,3 +56,5 @@ fs.readFile(mapPath, 'utf8', (err, data) => {
 console.log('Available resolutions:');
 console.log(`${x3}\n`);
 // console.log(formatTable);
+
+// --cookies /home/userland/yt/youtube-cookies.txt \

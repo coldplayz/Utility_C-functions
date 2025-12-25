@@ -44,7 +44,9 @@ timestamp="$(date +%Y-%m-%dT%H-%M-%S)"
 logfile="$timestamp".log
 echo Log file: "$logfile"
 
-yt-dlp -f "bv*[height=$size]+ba" --cookies '/home/userland/yt/youtube-cookies.txt' "$url" -o '%(title)s.%(ext)s' >> "$logfile" && echo $timestamp DONE! &
+yt-dlp -f "bv*[height=$size]+ba" --js-runtimes node "$url" -o '%(title)s.%(ext)s' >> "$logfile" && echo $timestamp DONE! &
+
+# yt-dlp -f "bv*[height=$size]+ba" --cookies '/home/userland/yt/youtube-cookies.txt' "$url" -o '%(title)s.%(ext)s' >> "$logfile" && echo $timestamp DONE! &
 
 # echo $timestamp DONE!
 # tail -f <log file path> # stream logs real-time
