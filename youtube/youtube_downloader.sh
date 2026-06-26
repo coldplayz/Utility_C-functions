@@ -44,7 +44,8 @@ timestamp="$(date +%Y-%m-%dT%H-%M-%S)"
 logfile="$timestamp".log
 echo Log file: "$logfile"
 
-yt-dlp -f "bv*[height=$size]+ba" --js-runtimes node "$url" -o '%(title)s.%(ext)s' >> "$logfile" && echo $timestamp DONE! &
+
+yt-dlp -f "bestvideo[height<=$size][ext=mp4]+bestaudio[ext=m4a]/bestvideo[height<=$size]+bestaudio/best[height<=$size]" --merge-output-format mp4 -o "%(title)s [%(height)sp].%(ext)s" "$url" >> "$logfile" && echo $timestamp DONE! &
 
 # yt-dlp -f "bv*[height=$size]+ba" --cookies '/home/userland/yt/youtube-cookies.txt' "$url" -o '%(title)s.%(ext)s' >> "$logfile" && echo $timestamp DONE! &
 
